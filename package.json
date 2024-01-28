@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "yarn prettier --write ."
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@next/third-parties": "^14.0.4",
