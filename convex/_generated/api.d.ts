@@ -12,12 +12,11 @@
 import type {
   ApiFromModules,
   FilterApi,
-  FunctionReference
-} from 'convex/server'
-
-import type * as crons from '../crons.js'
-import type * as llm from '../llm.js'
-import type * as searches from '../searches.js'
+  FunctionReference,
+} from "convex/server";
+import type * as crons from "../crons.js";
+import type * as llm from "../llm.js";
+import type * as searches from "../searches.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -28,15 +27,15 @@ import type * as searches from '../searches.js'
  * ```
  */
 declare const fullApi: ApiFromModules<{
-  crons: typeof crons
-  llm: typeof llm
-  searches: typeof searches
-}>
+  crons: typeof crons;
+  llm: typeof llm;
+  searches: typeof searches;
+}>;
 export declare const api: FilterApi<
   typeof fullApi,
-  FunctionReference<any, 'public'>
->
+  FunctionReference<any, "public">
+>;
 export declare const internal: FilterApi<
   typeof fullApi,
-  FunctionReference<any, 'internal'>
->
+  FunctionReference<any, "internal">
+>;
