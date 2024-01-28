@@ -26,7 +26,7 @@ export const Result: FC<{ query: string; rid: string }> = ({ query, rid }) => {
       if (query) {
         const similar = await similarSearch({ query });
         if (similar) {
-          setSearchId(similar!);
+          setSearchId(similar as any);
         } else {
           const searchId = await search({ query });
           setSearchId(searchId)
