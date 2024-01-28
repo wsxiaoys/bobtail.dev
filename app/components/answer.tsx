@@ -1,20 +1,21 @@
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/app/components/popover";
-import { Skeleton } from "@/app/components/skeleton";
-import { Wrapper } from "@/app/components/wrapper";
-import { Source } from "@/app/interfaces/source";
-import { BookOpenText } from "lucide-react";
-import { FC } from "react";
-import Markdown from "react-markdown";
+import { FC } from 'react'
+import { BookOpenText } from 'lucide-react'
+import Markdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { a11yDark as dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from '@/app/components/popover'
+import { Skeleton } from '@/app/components/skeleton'
+import { Wrapper } from '@/app/components/wrapper'
+import { Source } from '@/app/interfaces/source'
+
 export const Answer: FC<{ markdown: string; sources: Source[] }> = ({
   markdown,
-  sources,
+  sources
 }) => {
   return (
     <Wrapper
@@ -24,14 +25,14 @@ export const Answer: FC<{ markdown: string; sources: Source[] }> = ({
         </>
       }
       content={
-        (markdown) ? (
+        markdown ? (
           <div className="prose prose-sm max-w-full">
             <Markdown
               components={{
                 a: ({ node: _, ...props }) => {
-                  if (!props.href) return <></>;
-                  const source = sources[+props.href - 1];
-                  if (!source) return <></>;
+                  if (!props.href) return <></>
+                  const source = sources[+props.href - 1]
+                  if (!source) return <></>
                   return (
                     <span className="inline-block w-4">
                       <Popover>
@@ -44,7 +45,7 @@ export const Answer: FC<{ markdown: string; sources: Source[] }> = ({
                           </span>
                         </PopoverTrigger>
                         <PopoverContent
-                          align={"start"}
+                          align={'start'}
                           className="max-w-screen-md flex flex-col gap-2 bg-white shadow-transparent ring-zinc-50 ring-4 text-xs"
                         >
                           <div className="text-ellipsis overflow-hidden whitespace-nowrap font-medium">
@@ -91,12 +92,12 @@ export const Answer: FC<{ markdown: string; sources: Source[] }> = ({
                         </PopoverContent>
                       </Popover>
                     </span>
-                  );
+                  )
                 },
-                pre: (props) => {
+                pre: props => {
                   return <div>{props.children}</div>
                 },
-                code: (props) => {
+                code: props => {
                   const { children, className, node, ...rest } = props
                   const match = /language-(\w+)/.exec(className || '')
                   return match ? (
@@ -113,7 +114,8 @@ export const Answer: FC<{ markdown: string; sources: Source[] }> = ({
                     </code>
                   )
                 }
-              }}>
+              }}
+            >
               {markdown}
             </Markdown>
           </div>
@@ -128,5 +130,5 @@ export const Answer: FC<{ markdown: string; sources: Source[] }> = ({
         )
       }
     ></Wrapper>
-  );
-};
+  )
+}

@@ -1,9 +1,11 @@
-"use client";
-import { Footer } from "@/app/components/footer";
-import { Logo } from "@/app/components/logo";
-import { PresetQuery } from "@/app/components/preset-query";
-import { Search } from "@/app/components/search";
-import React from "react";
+'use client'
+
+import React from 'react'
+
+import { Footer } from '@/app/components/footer'
+import { Logo } from '@/app/components/logo'
+import { PresetQuery } from '@/app/components/preset-query'
+import { Search } from '@/app/components/search'
 
 export default function Home() {
   return (
@@ -19,5 +21,5 @@ export default function Home() {
         <Footer></Footer>
       </div>
     </div>
-  );
+  )
 }

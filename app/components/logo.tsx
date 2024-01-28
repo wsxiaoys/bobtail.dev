@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 export const Logo: FC = () => {
   return (
@@ -34,5 +34,5 @@ export const Logo: FC = () => {
         beta
       </div>
     </div>
-  );
-};
+  )
+}

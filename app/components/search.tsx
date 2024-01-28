@@ -1,20 +1,22 @@
-"use client";
-import { getSearchUrl } from "@/app/utils/get-search-url";
-import { ArrowRight } from "lucide-react";
-import { nanoid } from "nanoid";
-import { useRouter } from "next/navigation";
-import React, { FC, useState } from "react";
+'use client'
+
+import React, { FC, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { ArrowRight } from 'lucide-react'
+import { nanoid } from 'nanoid'
+
+import { getSearchUrl } from '@/app/utils/get-search-url'
 
 export const Search: FC = () => {
-  const [value, setValue] = useState("");
-  const router = useRouter();
+  const [value, setValue] = useState('')
+  const router = useRouter()
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
+      onSubmit={e => {
+        e.preventDefault()
         if (value) {
-          setValue("");
-          router.push(getSearchUrl(encodeURIComponent(value), nanoid()));
+          setValue('')
+          router.push(getSearchUrl(encodeURIComponent(value), nanoid()))
         }
       }}
     >
@@ -25,7 +27,7 @@ export const Search: FC = () => {
         <input
           id="search-bar"
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={e => setValue(e.target.value)}
           autoFocus
           placeholder="Ask Bobtail.DEV anything ..."
           className="px-2 pr-6 w-full rounded-md flex-1 outline-none bg-white"
@@ -38,5 +40,5 @@ export const Search: FC = () => {
         </button>
       </label>
     </form>
-  );
-};
+  )
+}
