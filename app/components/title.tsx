@@ -1,19 +1,18 @@
-"use client";
-import { getSearchUrl } from "@/app/utils/get-search-url";
-import { RefreshCcw } from "lucide-react";
-import { nanoid } from "nanoid";
-import { useRouter } from "next/navigation";
+'use client'
+
+import { useRouter } from 'next/navigation'
+import { RefreshCcw } from 'lucide-react'
+import { nanoid } from 'nanoid'
+
+import { getSearchUrl } from '@/app/utils/get-search-url'
 
 export const Title = ({ query }: { query: string }) => {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <div className="flex items-center pb-4 mb-6 border-b gap-4">
-      <div
-        className="flex-1 text-lg sm:text-xl text-black"
-        title={query}
-      >
+      <div className="flex-1 text-lg sm:text-xl text-black" title={query}>
         {query}
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,15 +1,16 @@
-import { Skeleton } from "@/app/components/skeleton";
-import { Wrapper } from "@/app/components/wrapper";
-import { Source } from "@/app/interfaces/source";
-import { BookText } from "lucide-react";
-import { FC } from "react";
+import { FC } from 'react'
+import { BookText } from 'lucide-react'
+
+import { Skeleton } from '@/app/components/skeleton'
+import { Wrapper } from '@/app/components/wrapper'
+import { Source } from '@/app/interfaces/source'
 
 const SourceItem: FC<{ source: Source; index: number }> = ({
   source,
-  index,
+  index
 }) => {
-  const { id, name, url } = source;
-  const domain = new URL(url).hostname;
+  const { id, name, url } = source
+  const domain = new URL(url).hostname
   return (
     <div
       className="relative text-xs py-3 px-3 bg-zinc-100 hover:bg-zinc-200 rounded-lg flex flex-col gap-2"
@@ -34,8 +35,8 @@ const SourceItem: FC<{ source: Source; index: number }> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export const Sources: FC<{ sources: Source[] }> = ({ sources }) => {
   return (
@@ -47,7 +48,7 @@ export const Sources: FC<{ sources: Source[] }> = ({ sources }) => {
       }
       content={
         <div className="flex flex-col gap-2">
-          {(sources.length > 0) ? (
+          {sources.length > 0 ? (
             sources.map((item, index) => (
               <SourceItem
                 key={item.id}
@@ -66,5 +67,5 @@ export const Sources: FC<{ sources: Source[] }> = ({ sources }) => {
         </div>
       }
     ></Wrapper>
-  );
-};
+  )
+}

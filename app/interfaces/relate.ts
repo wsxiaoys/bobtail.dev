@@ -1,3 +1,3 @@
 export interface Relate {
-  question: string;
+  question: string
 }

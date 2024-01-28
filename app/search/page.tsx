@@ -1,14 +1,15 @@
-"use client";
+'use client'
 
-import { Result } from "@/app/components/result";
-import { Search } from "@/app/components/search";
-import { Title } from "@/app/components/title";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams } from 'next/navigation'
+
+import { Result } from '@/app/components/result'
+import { Search } from '@/app/components/search'
+import { Title } from '@/app/components/title'
 
 export default function SearchPage() {
-  const searchParams = useSearchParams();
-  const query = decodeURIComponent(searchParams.get("q") || "");
-  const rid = decodeURIComponent(searchParams.get("rid") || "");
+  const searchParams = useSearchParams()
+  const query = decodeURIComponent(searchParams.get('q') || '')
+  const rid = decodeURIComponent(searchParams.get('rid') || '')
   return (
     <div>
       <div>
@@ -25,5 +26,5 @@ export default function SearchPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

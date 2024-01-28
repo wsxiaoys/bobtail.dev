@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC } from 'react'
 
 export const Footer: FC = () => {
   return (
@@ -6,7 +6,16 @@ export const Footer: FC = () => {
       <div className="text-zinc-400">
         OSS perplexity.ai/phind.com implementation
       </div>
-      <span>Star me on <a className="underline" target="_blank" href="https://github.com/wsxiaoys/bobtail.dev">Github</a></span>
+      <span>
+        Star me on{' '}
+        <a
+          className="underline"
+          target="_blank"
+          href="https://github.com/wsxiaoys/bobtail.dev"
+        >
+          Github
+        </a>
+      </span>
     </div>
-  );
-};
+  )
+}
