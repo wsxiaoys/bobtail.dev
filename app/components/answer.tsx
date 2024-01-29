@@ -1,8 +1,7 @@
 import { FC } from 'react'
 import { BookOpenText } from 'lucide-react'
+import { Highlight, themes } from 'prism-react-renderer'
 import Markdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { a11yDark as dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import {
   Popover,
@@ -101,13 +100,29 @@ export const Answer: FC<{ markdown: string; sources: Source[] }> = ({
                   const { children, className, node, ...rest } = props
                   const match = /language-(\w+)/.exec(className || '')
                   return match ? (
-                    <SyntaxHighlighter
-                      PreTag="div"
-                      CodeTag="div"
-                      children={String(children).replace(/\n$/, '')}
+                    <Highlight
                       language={match[1]}
-                      style={dark}
-                    />
+                      theme={themes.nightOwl}
+                      code={String(children).replace(/\n$/, '')}
+                    >
+                      {({
+                        className,
+                        style,
+                        tokens,
+                        getLineProps,
+                        getTokenProps
+                      }) => (
+                        <pre style={style}>
+                          {tokens.map((line, i) => (
+                            <div key={i} {...getLineProps({ line })}>
+                              {line.map((token, key) => (
+                                <span key={key} {...getTokenProps({ token })} />
+                              ))}
+                            </div>
+                          ))}
+                        </pre>
+                      )}
+                    </Highlight>
                   ) : (
                     <code {...rest} className={className}>
                       {children}
