@@ -3,7 +3,6 @@
 import React, { FC, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
-import { nanoid } from 'nanoid'
 
 import { getSearchUrl } from '@/app/utils/get-search-url'
 
@@ -16,7 +15,7 @@ export const Search: FC = () => {
         e.preventDefault()
         if (value) {
           setValue('')
-          router.push(getSearchUrl(encodeURIComponent(value), nanoid()))
+          router.push(getSearchUrl(encodeURIComponent(value)))
         }
       }}
     >

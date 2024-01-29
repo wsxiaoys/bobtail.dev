@@ -1,3 +1,3 @@
-export const getSearchUrl = (query: string, search_uuid: string) => {
+export const getSearchUrl = (query: string) => {
   return `/search?q=${encodeURIComponent(query)}`
 }

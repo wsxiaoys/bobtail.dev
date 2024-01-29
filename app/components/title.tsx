@@ -1,10 +1,6 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { RefreshCcw } from 'lucide-react'
-import { nanoid } from 'nanoid'
-
-import { getSearchUrl } from '@/app/utils/get-search-url'
 
 export const Title = ({ query }: { query: string }) => {
   const router = useRouter()
