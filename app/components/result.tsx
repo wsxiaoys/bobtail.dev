@@ -30,7 +30,7 @@ export const Result: FC<{ query: string }> = ({ query }) => {
       if (query) {
         try {
           const similar = await similarSearch({ query })
-          console.log("similar query", similar)
+          console.log('similar query', similar)
           if (similar?._score > 0.92) {
             setSearchId(similar._id)
             return
