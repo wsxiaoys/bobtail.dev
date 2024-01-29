@@ -11,7 +11,7 @@ import { Relates } from '@/app/components/relates'
 import { Sources } from '@/app/components/sources'
 import { Source } from '@/app/interfaces/source'
 
-export const Result: FC<{ query: string; rid: string }> = ({ query, rid }) => {
+export const Result: FC<{ query: string; }> = ({ query }) => {
   const [error, setError] = useState<number | null>(null)
 
   const [searchId, setSearchId] = useState<Id<'searches'> | undefined>(

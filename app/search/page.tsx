@@ -9,14 +9,13 @@ import { Title } from '@/app/components/title'
 export default function SearchPage() {
   const searchParams = useSearchParams()
   const query = decodeURIComponent(searchParams.get('q') || '')
-  const rid = decodeURIComponent(searchParams.get('rid') || '')
   return (
     <div>
       <div>
         <div className="pointer-events-none w-full backdrop-filter"></div>
         <div className="px-4 md:px-8 pt-6 pb-24 h-full">
           <Title query={query}></Title>
-          <Result key={rid} query={query} rid={rid}></Result>
+          <Result query={query}></Result>
         </div>
       </div>
 
