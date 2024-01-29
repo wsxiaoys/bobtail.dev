@@ -100,7 +100,7 @@ export const relatedQuestion = internalAction({
         let related = JSON.parse(tool_calls[0]?.function.arguments)
         relates = related.questions.slice(0, 5)
       } catch (err) {
-        console.warn("Failed to generate related questions", err)
+        console.warn('Failed to generate related questions', err)
       }
     }
 
