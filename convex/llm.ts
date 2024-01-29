@@ -96,8 +96,12 @@ export const relatedQuestion = internalAction({
     const tool_calls = choice.message.tool_calls
     let relates: string[] = []
     if (tool_calls) {
-      let related = JSON.parse(tool_calls[0]?.function.arguments)
-      relates = related.questions.slice(0, 5)
+      try {
+        let related = JSON.parse(tool_calls[0]?.function.arguments)
+        relates = related.questions.slice(0, 5)
+      } catch (err) {
+        console.warn("Failed to generate related questions", err)
+      }
     }
 
     await ctx.runMutation(internal.searches.updateRelates, {
